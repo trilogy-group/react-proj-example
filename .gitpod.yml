@@ -1,0 +1,13 @@
+tasks:
+  - name: start-app
+    init: |
+      npm install
+      gp sync-done install
+    command: npm start
+  - name: test-watch
+    init: gp sync-await install
+    command: npm run test
+    openMode: split-right
+ports:
+  - port: 3000
+    onOpen: open-preview
